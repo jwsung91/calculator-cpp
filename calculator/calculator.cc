@@ -12,6 +12,8 @@ int Calculator::Minus(int var1, int var2)
 
 int Calculator::Divide(int var1, int var2)
 {
+    if (var2 == 0)
+        throw std::invalid_argument("Divide by zero");
     return var1 / var2;
 }
 
