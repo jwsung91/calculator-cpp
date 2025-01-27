@@ -5,8 +5,6 @@ project(calculator-cpp)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED true)
 
-include_directories(include)
-
 # Add GoogleTest
 include(FetchContent)
 FetchContent_Declare(
@@ -21,6 +19,11 @@ enable_testing()
 
 add_subdirectory(calculator)
 add_subdirectory(test)
+
+# Add main executable
+add_executable(calculator_main main.cc)
+target_include_directories(calculator_main PRIVATE ${CMAKE_SOURCE_DIR}/calculator)
+target_link_libraries(calculator_main Calculator)
 
 # Suppress warnings in Google Test
 if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
