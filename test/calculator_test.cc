@@ -27,6 +27,11 @@ TEST_F(CalculatorTest, Division)
     EXPECT_EQ(Calc.Divide(4, 2), 2);
 }
 
+TEST_F(CalculatorTest, DivideByZero)
+{
+    EXPECT_THROW(Calc.Divide(4, 0), std::invalid_argument);
+}
+
 int main(int argc, char **argv)
 {
     ::testing::InitGoogleTest(&argc, argv);
